@@ -3,7 +3,9 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse('Главаня страница')
+    template = 'posts/index.html'
+    return render(request, template)
 
 def group_posts(request, slug):
-    return HttpResponse(f'Страница с постами группы {slug}')
+    template = 'posts/group_list.html'
+    return render(request, template, {'slug': slug})
